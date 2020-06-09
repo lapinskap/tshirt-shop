@@ -1,6 +1,8 @@
 <template>
 <div>
 <!-- <component v-bind:is="currentView" /> -->
+<FormTshirtPreview :selectedImg="imgSource" :placement="placement"/>
+cost: {{ cost }}
 <FormImagePlacement />
 <FormImageChoice />
 <FormImageStyle />
@@ -16,11 +18,12 @@ import { required, minLength, between } from 'vuelidate/lib/validators'
 export default {
   data() {
     return {
-      name: '',
-      age: 0,
-      checked: false,
+      cost: 0,
+      placement: 'front',
+      style: 'normal',
       step: [1,2,3,4,5],
       currentStep: 1,
+      imgSource: 'https://picsum.photos/id/1/250/200',
     }
   },
   validations: {

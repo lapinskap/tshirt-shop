@@ -1,7 +1,7 @@
 <template>
 <div>
     <img class="img-front" v-if="placement === 'front' || 'both sides'" :src="selectedImg" />
-    <img class="img-back" v-if="placement === 'back' || 'both sides'" :src="selectedImg" />
+    <img class="img-back" v-if="placement ===  'back' || 'both sides'" :src="selectedImg" />
     <img class="t-shirt" src="../../utils/image.jpg" />
 </div>
 </template>

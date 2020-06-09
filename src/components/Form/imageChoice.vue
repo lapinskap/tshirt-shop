@@ -1,8 +1,10 @@
 <template>
-<div>
-    <p>Please import an image</p>
-    <input type="file" />
-</div>
+<b-form-group>
+    <p>Please select an image</p>
+    <img :src="imgSource"/>
+    <b-button v-bind:disabled="checkID" v-on:click="decrementImgID">Previous Image</b-button>
+    <b-button v-on:click="incrementImgID">Next Image</b-button>
+</b-form-group>
 </template>
 <script>
 import { required, minLength, between } from 'vuelidate/lib/validators'
@@ -10,9 +12,7 @@ import { required, minLength, between } from 'vuelidate/lib/validators'
 export default {
 data() {
     return {
-      name: '',
-      age: 0,
-      checked: false,
+      imgID: 1,
     }
   },
   validations: {
@@ -22,6 +22,22 @@ data() {
     },
     age: {
       between: between(20, 30)
+    }
+  },
+  computed: {
+    imgSource: function() {
+      return `https://picsum.photos/id/${this.imgID}/250/200`
+    },
+    checkID: function() {
+      return this.imgID === 0;
+    },
+  },
+  methods: {
+    incrementImgID() {
+      this.imgID = this.imgID + 1;
+    },
+    decrementImgID() {
+      this.imgID = this.imgID - 1;
     }
   }
 }

@@ -11,7 +11,6 @@
         <label for="placement_both">Both sides</label>
     </b-form-group>
         <div class="mt-3">Selected: <strong>{{ placement }}</strong></div>
-    <img src="" />
 </b-form-group>
 </template>
 <script>

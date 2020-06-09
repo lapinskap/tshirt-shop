@@ -26,7 +26,7 @@ data() {
   },
   computed: {
     imgSource: function() {
-      return `https://picsum.photos/id/${this.imgID}/250/200`
+      return `https://picsum.photos/id/${this.imgID}/250/200/`
     },
     checkID: function() {
       return this.imgID === 0;
@@ -35,9 +35,13 @@ data() {
   methods: {
     incrementImgID() {
       this.imgID = this.imgID + 1;
+
+      this.$root.$emit('update::img', this.imgSource);
     },
     decrementImgID() {
       this.imgID = this.imgID - 1;
+
+      this.$root.$emit('update::img', this.imgSource);
     }
   }
 }

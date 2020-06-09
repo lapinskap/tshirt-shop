@@ -1,22 +1,26 @@
 <template>
-<div>
+<b-form-group>
     <p>Please select image style</p>
-        <input type="checkbox" id="checkbox" v-model="color_BW">
+        <b-form-radio @click.native="updateImgEffect" id="checkbox" value="" v-model="imgEffect"></b-form-radio>
 <label for="checkbox">Normal</label>
-        <input type="checkbox" id="checkbox" v-model="blured">
+        <b-form-radio @click.native="updateImgEffect" id="checkbox" value="?blured" v-model="imgEffect"></b-form-radio>
 <label for="checkbox">Blured</label>
-
-    <input type="checkbox" id="checkbox" v-model="color_BW">
+<b-form-input v-if="imgEffect === '?blured'" v-model="blurScale" />
+    <b-form-radio @click.native="updateImgEffect" id="checkbox" value="?grayscale" v-model="imgEffect"></b-form-radio>
 <label for="checkbox">Black and White</label>
-
-</div>
+</b-form-group>
 </template>
 <script>
 export default {
     data() {
         return {
-            blured: false,
-            color_BW: false,
+            imgEffect: '',
+            blurScale: 1,
+        }
+    },
+    methods: {
+        updateImgEffect() {
+            this.$root.$emit('update::img-effect', this.imgEffect);
         }
     }
 }

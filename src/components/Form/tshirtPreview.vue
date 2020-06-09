@@ -7,10 +7,12 @@
 </template>
 <script>
 export default {
+props: {
+  selectedImg: String,
+},
 data() {
     return {
       placement: null,
-      selectedImg: '',
     }
   },
 }
@@ -19,12 +21,10 @@ data() {
 .t-shirt {
   max-width: 500px;
 }
-.img-front {
+.img-front, .img-back {
   position: absolute;
   z-index: 100;
-}
-.img-back {
-  position: absolute;
-  z-index: 100;
+  max-width: 100px;
+  height: 100px;
 }
 </style>

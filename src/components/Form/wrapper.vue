@@ -12,19 +12,28 @@ cost: {{ cost }}
 </template>
 <script>
 import { required, minLength, between } from 'vuelidate/lib/validators'
-// import Summary from './Summary.vue';
-// import ImagePlacement from './ImagePlacement';
 
 export default {
   data() {
     return {
       cost: 0,
       placement: 'front',
-      style: 'normal',
+      style: '?normal',
       step: [1,2,3,4,5],
       currentStep: 1,
-      imgSource: 'https://picsum.photos/id/1/250/200',
+      imgSource: 'https://picsum.photos/id/1/200/200/' + this.style
     }
+  },
+    mounted() {
+    this.$root.$on('update::placement', (placement) => {
+      this.placement = placement;
+    });
+    this.$root.$on('update::img-effect', (style) => {
+      this.style = style;
+    });
+    this.$root.$on('update::img', (imgSource) => {
+      this.imgSource = imgSource + this.style;
+    });
   },
   validations: {
     name: {

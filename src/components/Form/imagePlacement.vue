@@ -1,13 +1,26 @@
 
 <template>
-<div>
+  <b-form-group>
     <p>Please select image placement</p>
-        <input type="checkbox" id="placement_front" v-model="placement_front">
-<label for="placement_front">Front</label>
-    <input type="checkbox" id="placement_back" v-model="placement_back">
-<label for="placement_back">Back</label>
-    <input type="checkbox" id="placement_both" v-model="placement_both">
-<label for="placement_both">Both sides</label>
-
-</div>
+    <b-form-group>
+        <b-form-radio name="placement_front" id="placement_front" v-model="placement" value="front"></b-form-radio>
+        <label for="placement_front">Front</label>
+        <b-form-radio name="placement_back" id="placement_front" v-model="placement" value="back"></b-form-radio>
+        <label for="placement_back">Back</label>
+        <b-form-radio name="placement_both" id="placement_front" v-model="placement" value="both sides"></b-form-radio>
+        <label for="placement_both">Both sides</label>
+    </b-form-group>
+        <div class="mt-3">Selected: <strong>{{ placement }}</strong></div>
+    <img src="" />
+</b-form-group>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      placement: null,
+    }
+  },
+}
+
+</script>

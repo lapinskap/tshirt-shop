@@ -21,7 +21,7 @@
         style: "?normal",
         step: [1, 2, 3, 4, 5],
         currentStep: 1,
-        imgSource: "https://picsum.photos/id/1/200/200/" + this.style
+        imgSource: "https://picsum.photos/id/1/200/200/?normal"
       };
     },
     mounted() {

@@ -1,29 +1,39 @@
 <template>
-  <b-form-group>
+  <div class="col-sm-12">
     <p>Please select image style</p>
-    <b-form-radio
-      @click.native="updateImgEffect"
-      id="checkbox"
-      value
-      v-model="imgEffect"
-    ></b-form-radio>
-    <label for="checkbox">Normal</label>
-    <b-form-radio
-      @click.native="updateImgEffect"
-      id="checkbox"
-      value="?blured"
-      v-model="imgEffect"
-    ></b-form-radio>
-    <label for="checkbox">Blured</label>
-    <b-form-input v-if="imgEffect === '?blured'" v-model="blurScale" />
-    <b-form-radio
-      @click.native="updateImgEffect"
-      id="checkbox"
-      value="?grayscale"
-      v-model="imgEffect"
-    ></b-form-radio>
-    <label for="checkbox">Black and White</label>
-  </b-form-group>
+    <b-form-group class="col-sm-4">
+      <b-form-radio
+        @click.native="updateImgEffect"
+        id="checkbox"
+        value="?normal"
+        v-model="imgEffect"
+      ></b-form-radio>
+      <label for="checkbox">Normal</label>
+    </b-form-group>
+    <b-form-group class="col-sm-4">
+      <b-form-radio
+        @click.native="updateImgEffect"
+        id="checkbox"
+        value="?blured"
+        v-model="imgEffect"
+      ></b-form-radio>
+      <label for="checkbox">Blured</label>
+      <div v-if="imgEffect === '?blured'">
+        <b-form-input v-model="blurScale" />
+        <b-button>+</b-button>
+        <b-button>-</b-button>
+      </div>
+    </b-form-group>
+    <b-form-group class="col-sm-4">
+      <b-form-radio
+        @click.native="updateImgEffect"
+        id="checkbox"
+        value="?grayscale"
+        v-model="imgEffect"
+      ></b-form-radio>
+      <label for="checkbox">Black and White</label>
+    </b-form-group>
+  </div>
 </template>
 <script>
   export default {

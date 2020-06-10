@@ -1,8 +1,8 @@
 
 <template>
-  <b-form-group>
+  <div class="col-sm-12">
     <p>Please select image placement</p>
-    <b-form-group>
+    <b-form-group class="col-sm-4">
       <b-form-radio
         v-on:click.native="updatePlacement"
         name="placement_front"
@@ -11,6 +11,8 @@
         value="front"
       ></b-form-radio>
       <label for="placement_front">Front</label>
+    </b-form-group>
+    <b-form-group class="col-sm-4">
       <b-form-radio
         v-on:click.native="updatePlacement"
         name="placement_back"
@@ -19,6 +21,8 @@
         value="back"
       ></b-form-radio>
       <label for="placement_back">Back</label>
+    </b-form-group>
+    <b-form-group class="col-sm-4">
       <b-form-radio
         v-on:click.native="updatePlacement"
         name="placement_both"
@@ -32,7 +36,7 @@
       Selected:
       <strong>{{ placement }}</strong>
     </div>
-  </b-form-group>
+  </div>
 </template>
 <script>
   export default {

@@ -1,13 +1,18 @@
 <template>
   <div>
     <!-- <component v-bind:is="currentView" /> -->
-    <FormTshirtPreview :selectedImg="imgSource" :placement="placement" />
-    cost: {{ cost }}
-    <FormImagePlacement />
-    <FormImageChoice />
-    <FormImageStyle />
-    <FormSummary />
-    <ThanksPage />
+    <FormTshirtPreview
+      :selectedImg="form.imgSource"
+      :placement="form.placement"
+    />
+    cost: {{ form.cost }}
+    <FormImagePlacement v-show="currentStep ===  1" />
+    <FormImageChoice v-show="currentStep ===  2" />
+    <FormImageStyle v-show="currentStep ===  3" />
+    <FormSummary v-show="currentStep ===  4" />
+    <ThanksPage v-show="currentStep ===  5" />
+    <button @click="previousStep">Powrót</button>
+    <button @click="nextStep">Dalej</button>
   </div>
 </template>
 <script>
@@ -16,23 +21,26 @@
   export default {
     data() {
       return {
-        cost: 0,
-        placement: "front",
-        style: "?normal",
         step: [1, 2, 3, 4, 5],
         currentStep: 1,
-        imgSource: "https://picsum.photos/id/1/200/200/?normal"
+        imgSource: "https://picsum.photos/id/1/200/200/?normal",
+        form: {
+          cost: 0,
+          placement: "front",
+          style: "?normal",
+          imgSource: "https://picsum.photos/id/1/200/200/?normal"
+        }
       };
     },
     mounted() {
       this.$root.$on("update::placement", placement => {
-        this.placement = placement;
+        this.form.placement = placement;
       });
       this.$root.$on("update::img-effect", style => {
-        this.style = style;
+        this.form.style = style;
       });
       this.$root.$on("update::img", imgSource => {
-        this.imgSource = imgSource + this.style;
+        this.form.imgSource = imgSource + this.form.style;
       });
     },
     validations: {
@@ -42,6 +50,14 @@
       },
       age: {
         between: between(20, 30)
+      }
+    },
+    methods: {
+      nextStep() {
+        this.currentStep = this.currentStep + 1;
+      },
+      previousStep() {
+        this.currentStep = this.currentStep - 1;
       }
     }
   };

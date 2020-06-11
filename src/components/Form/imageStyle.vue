@@ -39,7 +39,7 @@
   export default {
     data() {
       return {
-        imgEffect: "",
+        imgEffect: "?normal",
         blurScale: 1
       };
     },

@@ -23,7 +23,6 @@
       return {
         step: [1, 2, 3, 4, 5],
         currentStep: 1,
-        imgSource: "https://picsum.photos/id/1/200/200/?normal",
         form: {
           cost: 0,
           placement: "front",
@@ -38,6 +37,7 @@
       });
       this.$root.$on("update::img-effect", style => {
         this.form.style = style;
+        this.updateImgSource();
       });
       this.$root.$on("update::img", imgSource => {
         this.form.imgSource = imgSource + this.form.style;
@@ -58,6 +58,16 @@
       },
       previousStep() {
         this.currentStep = this.currentStep - 1;
+      },
+      updateImgSource() {
+        let img = this.form.imgSource;
+        if (img.includes("?")) {
+          img = img.substring(0, img.indexOf("?")) + this.form.style;
+          this.form.imgSource = img;
+        } else {
+          img = img + this.form.style;
+          this.form.imgSource = img;
+        }
       }
     }
   };

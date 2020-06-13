@@ -42,6 +42,9 @@
       this.$root.$on("update::img", imgSource => {
         this.form.imgSource = imgSource + this.form.style;
       });
+      this.$root.$on("update::cost", cost => {
+        this.form.cost = cost;
+      });
     },
     validations: {
       name: {

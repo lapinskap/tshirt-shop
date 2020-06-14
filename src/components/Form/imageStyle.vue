@@ -20,8 +20,8 @@
       <label for="checkbox">Blured</label>
       <div v-if="imgEffect === '?blured'">
         <b-form-input v-model="blurScale" />
-        <b-button>+</b-button>
-        <b-button>-</b-button>
+        <b-button class="btn btn-default">+</b-button>
+        <b-button class="btn btn-default">-</b-button>
       </div>
     </b-form-group>
     <b-form-group class="col-sm-4">

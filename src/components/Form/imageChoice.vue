@@ -5,8 +5,9 @@
     <b-button
       v-bind:disabled="checkID"
       v-on:click="decrementImgID"
+      class="btn btn-default"
     >Previous Image</b-button>
-    <b-button v-on:click="incrementImgID">Next Image</b-button>
+    <b-button v-on:click="incrementImgID" class="btn btn-default">Next Image</b-button>
   </b-form-group>
 </template>
 <script>

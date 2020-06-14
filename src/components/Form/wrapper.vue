@@ -11,8 +11,8 @@
     <FormImageStyle v-show="currentStep ===  3" />
     <FormSummary v-show="currentStep ===  4" />
     <ThanksPage v-show="currentStep ===  5" />
-    <button @click="previousStep">Powrót</button>
-    <button @click="nextStep">Dalej</button>
+    <button @click="previousStep" class="btn btn-default">Powrót</button>
+    <button @click="nextStep" class="btn btn-default">Dalej</button>
   </div>
 </template>
 <script>

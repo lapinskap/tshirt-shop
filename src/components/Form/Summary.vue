@@ -1,9 +1,9 @@
 <template>
   <div>
     total cost:
-    <b-button>edytuj</b-button>
-    <b-button>Potwierdź</b-button>
-    <b-button>Do kasy</b-button>
+    <b-button class="btn btn-default">edytuj</b-button>
+    <b-button class="btn btn-default">Potwierdź</b-button>
+    <b-button class="btn btn-default">Do kasy</b-button>
   </div>
 </template>
 <script>

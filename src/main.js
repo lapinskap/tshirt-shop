@@ -6,6 +6,9 @@ import * as swal from 'sweetalert2';
 import BootstrapVue from 'bootstrap-vue';
 import Vuelidate from 'vuelidate';
 
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+
 Vue.config.productionTip = false
 
 

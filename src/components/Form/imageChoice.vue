@@ -1,13 +1,16 @@
 <template>
-  <b-form-group>
+  <b-form-group class="col-sm-12">
     <p>Please select an image</p>
-    <img :src="imgSource" />
+    <img :src="imgSource" class="col-sm-12" />
     <b-button
       v-bind:disabled="checkID"
       v-on:click="decrementImgID"
-      class="btn btn-default"
+      class="btn btn-default mt-3"
     >Previous Image</b-button>
-    <b-button v-on:click="incrementImgID" class="btn btn-default">Next Image</b-button>
+    <b-button
+      v-on:click="incrementImgID"
+      class="btn btn-default mt-3"
+    >Next Image</b-button>
   </b-form-group>
 </template>
 <script>

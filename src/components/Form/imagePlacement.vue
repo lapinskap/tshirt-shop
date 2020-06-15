@@ -1,42 +1,30 @@
 
 <template>
-  <div class="col-sm-12">
+  <b-form-group class="col-sm-12">
     <p>Please select image placement</p>
-    <b-form-group class="col-sm-4">
-      <b-form-radio
-        v-on:click.native="updatePlacement"
-        name="placement_front"
-        id="placement_front"
-        v-model="placement"
-        value="front"
-      ></b-form-radio>
-      <label for="placement_front">Front</label>
-    </b-form-group>
-    <b-form-group class="col-sm-4">
-      <b-form-radio
-        v-on:click.native="updatePlacement"
-        name="placement_back"
-        id="placement_front"
-        v-model="placement"
-        value="back"
-      ></b-form-radio>
-      <label for="placement_back">Back</label>
-    </b-form-group>
-    <b-form-group class="col-sm-4">
-      <b-form-radio
-        v-on:click.native="updatePlacement"
-        name="placement_both"
-        id="placement_front"
-        v-model="placement"
-        value="both sides"
-      ></b-form-radio>
-      <label for="placement_both">Both sides</label>
-    </b-form-group>
+    <b-form-radio
+      v-on:click.native="updatePlacement"
+      name="placement_front"
+      v-model="placement"
+      value="front"
+    >Front</b-form-radio>
+    <b-form-radio
+      v-on:click.native="updatePlacement"
+      name="placement_back"
+      v-model="placement"
+      value="back"
+    >Back</b-form-radio>
+    <b-form-radio
+      v-on:click.native="updatePlacement"
+      name="placement_both"
+      v-model="placement"
+      value="both sides"
+    >Both sides</b-form-radio>
     <div class="mt-3">
       Selected:
       <strong>{{ placement }}</strong>
     </div>
-  </div>
+  </b-form-group>
 </template>
 <script>
   export default {

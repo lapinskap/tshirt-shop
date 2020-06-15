@@ -1,12 +1,12 @@
 <template>
   <div>
     <!-- <component v-bind:is="currentView" /> -->
-    <div class="container">
+    <!--- <div class="container">
       <FormTshirtPreview
         :selectedImg="form.imgSource"
         :placement="form.placement"
       />
-    </div>
+    </div>-->
     <div class="test">
       cost: {{ form.cost }}
       <FormImagePlacement v-show="currentStep ===  1" />
@@ -88,6 +88,6 @@
   justify-content: center;
 }
 .test {
-  padding-top: 200px;
+  max-width: 50%;
 }
 </style>

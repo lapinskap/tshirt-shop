@@ -1,18 +1,24 @@
 <template>
   <div>
     <!-- <component v-bind:is="currentView" /> -->
-    <FormTshirtPreview
-      :selectedImg="form.imgSource"
-      :placement="form.placement"
-    />
-    cost: {{ form.cost }}
-    <FormImagePlacement v-show="currentStep ===  1" />
-    <FormImageChoice v-show="currentStep ===  2" />
-    <FormImageStyle v-show="currentStep ===  3" />
-    <FormSummary v-show="currentStep ===  4" />
-    <ThanksPage v-show="currentStep ===  5" />
-    <button @click="previousStep" class="btn btn-default">Powrót</button>
-    <button @click="nextStep" class="btn btn-default">Dalej</button>
+    <div class="container">
+      <FormTshirtPreview
+        :selectedImg="form.imgSource"
+        :placement="form.placement"
+      />
+    </div>
+    <div class="test">
+      cost: {{ form.cost }}
+      <FormImagePlacement v-show="currentStep ===  1" />
+      <FormImageChoice v-show="currentStep ===  2" />
+      <FormImageStyle v-show="currentStep ===  3" />
+      <FormSummary v-show="currentStep ===  4" />
+      <FormShippingSummary v-show="currentStep === 5" />
+      <FormShippingInfo v-show="currentStep === 6" />
+      <ThanksPage v-show="currentStep ===  7" />
+      <button @click="previousStep" class="btn btn-default">Powrót</button>
+      <button @click="nextStep" class="btn btn-default">Dalej</button>
+    </div>
   </div>
 </template>
 <script>
@@ -80,5 +86,8 @@
   width: 50%;
   display: flex;
   justify-content: center;
+}
+.test {
+  padding-top: 200px;
 }
 </style>
